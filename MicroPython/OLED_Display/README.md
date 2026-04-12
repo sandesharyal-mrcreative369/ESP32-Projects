@@ -60,7 +60,4 @@ When the push button is pressed, messages are displayed on the OLED screen. Each
 
 **Note:** The internal pull-up resistor of the ESP32 is used in the code.
 
----
-
-## 📂 Project Structure
 
