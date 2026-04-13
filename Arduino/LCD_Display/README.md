@@ -45,22 +45,10 @@ In this project, the ESP32 prints **"Hello"** on a 16×2 LCD and then displays *
 
 1. The LCD is initialized using `lcd.begin(16, 2)`.
 2. The message **"Hello"** is displayed on the first row.
-3. The number **"1"** appears after a 1-second delay.
-4. The number **"2"** is displayed after another 1-second delay.
-5. The `loop()` function remains empty to prevent repetition.
-
----
-
-## 📂 Project Structure
-
-```
-ESP32-Projects/
-└── Arduino/
-    └── LCD_Display/
-        ├── LCD_Display.ino
-        ├── LCD_Display_Circuit_Diagram.png
-        └── README.md
-```
+3.The built-in millis() function tracks the elapsed time since the ESP32 started running.
+4.The value millis()/1000 converts milliseconds into seconds.
+5.The calculated seconds are continuously displayed on the second row of the LCD.
+6.The loop() function updates the display in real time without using delays, ensuring smooth and accurate time tracking.
 
 ---
 
@@ -80,6 +68,8 @@ ESP32-Projects/
 Hello
 1
 2
+3
+4
 ```
 
 ---
