@@ -62,11 +62,10 @@ When the push button is pressed, messages are displayed on the OLED screen. Each
 
 ## 🚀 Getting Started
 
-1. Open the Arduino IDE.
+1. Open the Thonny IDE.
 2. Select **ESP32 Dev Module** from the Boards Manager.
 3. Connect the ESP32 via USB.
 4. Upload the code to the board.
-5. Adjust the potentiometer to control the LCD contrast.
 
 ---
 
@@ -75,7 +74,7 @@ When the push button is pressed, messages are displayed on the OLED screen. Each
 ## 📚 Applications
 
 * Beginner embedded systems projects
-* Learning LCD interfacing
+* Learning OLED Display interfacing
 * Displaying sensor data
 * User interface for IoT devices
 
