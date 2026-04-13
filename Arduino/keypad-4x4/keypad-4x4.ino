@@ -1,14 +1,18 @@
 /*
-  This is a simple 4x4 Keypad using 16 Push-Buttons.
-  You can use lees than 16 or more than 16 Push-Buttons according to your Requirement.
-  Only thing is that according to your number of Push-Buttons,you have to initalize the no.of rows,columns and and Keys Matrix.
-  If it is 3x3 then initalize and map 3x3 matrix of keys and according map no of rows and columns
+  This is a simple 4x4 Keypad interfacing project using 16 push-buttons.
+
+  You can use fewer or more than 16 push-buttons according to your requirements.
+  The only requirement is to initialize the number of rows, columns, and the key matrix accordingly.
+
+  For example:
+  - If you are using a 3x3 keypad, initialize a 3x3 key matrix.
+  - Update the number of rows and columns to match your keypad configuration.
 */
 
-
-//Including Keypad Header file
+//Including Keypad Library
 #include <Keypad.h>
 
+// Initializing and mapping the key matrix
 const byte ROWS = 4; // Number of rows
 const byte COLS = 4; // Number of columns
 
@@ -18,21 +22,26 @@ char keys[ROWS][COLS] = {
  {'4', '5', '6', 'B'},
  {'7', '8', '9', 'C'},
  {'*', '0', '#', 'D'}
-}; //Matrix of KeyPad
+}; //KeyPad Matrix
 
-byte rowPins[ROWS] = {13, 12, 11, 10}; // Connect to row pins
-byte colPins[COLS] = {5, 4, 3, 2}; // Connect to column pins
 
-Keypad customKeypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);  //Object Creation
+// Connecting keypad pins to Arduino digital pins
+byte rowPins[ROWS] = {13, 12, 11, 10}; // Row pins
+byte colPins[COLS] = {5, 4, 3, 2}; // CColumn pins
+
+// Creating the keypad object
+Keypad customKeypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);  
 
 void setup() {
+  // Initialize serial communication
   Serial.begin(9600);
 }
 
 void loop() {
-  char customKey = customKeypad.getKey();  //Getting Keys
+    // Read the pressed key
+  char customKey = customKeypad.getKey();  
 
-  //Checking if key is pressed,and printing that key
+  // Print the pressed key to the Serial Monitor
   if (customKey) {
     Serial.println(customKey);
   }
