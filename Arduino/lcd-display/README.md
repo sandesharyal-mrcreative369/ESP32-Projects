@@ -1,6 +1,6 @@
 # 📟 Simple LCD Display with ESP32
 
-This project demonstrates how to interface a 16×2 LCD with an ESP32 using the Arduino IDE. The LCD displays a greeting message along with a time delay. It is a beginner-friendly project for understanding LCD interfacing and basic output control.
+This project demonstrates how to interface a 16×2 LCD with an Arduino using the Arduino IDE. The LCD displays a greeting message along with a time delay. It is a beginner-friendly project for understanding LCD interfacing and basic output control.
 
 ---
 
