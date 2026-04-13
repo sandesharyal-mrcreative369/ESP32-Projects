@@ -6,13 +6,14 @@ This project demonstrates how to interface a 16×2 LCD with an Arduino using the
 
 ## 📌 Project Overview
 
-In this project, the ESP32 prints **"Hello"** on a 16×2 LCD and then displays **"1"** and **"2"** with a delay of one second between each output. This example helps beginners learn how to initialize and control an LCD using Arduino programming.
+In this project, the ESP32 prints **"Hello"** on a 16×2 LCD and then displays seconds using millis() function.
+This example helps beginners learn how to initialize and control an LCD using Arduino programming.
 
 ---
 
 ## 🛠️ Components Required
 
-* ESP32 Development Board
+* Arduino Development Board
 * 16×2 LCD Display
 * 10kΩ Potentiometer (for contrast adjustment)
 * Breadboard
@@ -23,20 +24,28 @@ In this project, the ESP32 prints **"Hello"** on a 16×2 LCD and then displays *
 
 ## 🔌 Circuit Connections
 
-| LCD Pin  | ESP32 Connection            |
-| -------- | --------------------------- |
-| VSS      | GND                         |
-| VDD      | 5V                          |
-| V0       | Middle pin of Potentiometer |
-| RS       | GPIO 12                     |
-| RW       | GND                         |
-| E        | GPIO 11                     |
-| D4       | GPIO 5                      |
-| D5       | GPIO 4                      |
-| D6       | GPIO 3                      |
-| D7       | GPIO 2                      |
-| A (LED+) | 5V                          |
-| K (LED−) | GND                         |
+| LCD Pin  | ESP32 Connection                     |
+|----------|--------------------------------------|
+| VSS      | GND                                  |
+| VDD      | 5V                                   |
+| V0       | GND through a 1kΩ–10kΩ resistor      |
+| RS       | GPIO 12                              |
+| RW       | GND                                  |
+| E        | GPIO 11                              |
+| D4       | GPIO 5                               |
+| D5       | GPIO 4                               |
+| D6       | GPIO 3                               |
+| D7       | GPIO 2                               |
+| A (LED+) | 5V                                   |
+| K (LED−) | GND                                  |
+
+
+> 🔹 **Note:**
+> - The V0 pin controls the contrast of the LCD.
+> - A **1kΩ–10kΩ resistor** connected between V0 and GND provides a fixed contrast.
+> - A **10kΩ potentiometer** is recommended for adjustable contrast.
+> - If the display appears too dark or too faint, adjust the resistor value.
+
 
 > ⚠️ Note: GPIO pins can be adjusted according to your hardware setup.
 
@@ -55,10 +64,10 @@ In this project, the ESP32 prints **"Hello"** on a 16×2 LCD and then displays *
 ## 🚀 Getting Started
 
 1. Open the Arduino IDE.
-2. Select **ESP32 Dev Module** from the Boards Manager.
-3. Connect the ESP32 via USB.
+2. Select **Ardiuno UNO** from the Boards Manager.
+3. Connect the Arduino via USB.
 4. Upload the code to the board.
-5. Adjust the potentiometer to control the LCD contrast.
+5. For fix contrast using 1K-10K Resistor(Recommended use potentiometer).
 
 ---
 
