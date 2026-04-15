@@ -22,7 +22,7 @@ The Arduino reads the state of a push button connected to a digital pin. When th
 
 | Component | Arduino Connection |
 |-----------|-------------------|
-| Push Button Pin 1 | Digital Pin 5 |
+| Push Button Pin 1 | Digital Pin 8 |
 | Push Button Pin 2 | GND |
 
 **Note:** No external resistor is required because the internal pull-up resistor is used.
