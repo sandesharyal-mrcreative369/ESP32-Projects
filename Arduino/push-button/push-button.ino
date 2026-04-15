@@ -10,7 +10,7 @@
 
 
 //Define Pin connected to push button
-#define push_button_pin 5
+#define push_button_pin 8
 
 void setup(){
  
