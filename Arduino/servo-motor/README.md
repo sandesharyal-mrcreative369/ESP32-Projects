@@ -20,11 +20,11 @@ Servo motors are widely used in robotics and automation. In this project, an Ard
 
 ## 🔌 Circuit Connections
 
-| Servo Wire Color | Connection |
-|------------------|------------|
-| Red              | 5V         |
-| Brown/Black      | GND        |
-| Yellow/Orange    | Digital Pin 9 |
+| Servo Wire Color   | Connection |
+|--------------------|------------|
+| Red                | 5V         |
+| Brown/Black        | GND        |
+| Blue/Yellow/Orange |Digital Pin 9 |
 
 ---
 
