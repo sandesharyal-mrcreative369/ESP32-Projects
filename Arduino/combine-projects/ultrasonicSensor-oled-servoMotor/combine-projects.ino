@@ -69,7 +69,7 @@ void loop() {
  servo_angle = constrain(servo_angle, 0, 180);
 
  //Moves Servo to servo_angle
- servo.write(servo_angle);  // object_name.write(angle)
+ myServo.write(servo_angle);  // object_name.write(angle)
 
  // -------- Print Result --------
   Serial.print("Distance: ");
