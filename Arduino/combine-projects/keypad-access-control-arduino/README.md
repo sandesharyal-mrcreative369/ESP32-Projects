@@ -92,3 +92,16 @@ This project demonstrates the integration of multiple hardware components using 
 | 5V  | Components VCC |
 | GND | Common Ground  |
 
+
+## 🧠 Working Principle
+
+1. User inputs via keypad  
+2. System processes the input  
+3. Ultrasonic sensor measures distance  
+4. Data is shown on OLED display  
+5. Based on logic:
+   - LEDs turn ON/OFF  
+   - Servo motor rotates  
+
+---
+    
