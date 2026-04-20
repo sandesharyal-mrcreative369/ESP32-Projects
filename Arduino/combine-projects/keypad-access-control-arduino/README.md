@@ -104,4 +104,42 @@ This project demonstrates the integration of multiple hardware components using 
    - Servo motor rotates  
 
 ---
-    
+
+
+
+## 💻 How to Upload Code
+
+1. Open Arduino IDE  
+2. Select Board: Arduino Uno  
+3. Select correct COM Port  
+4. Upload the `.ino` file  
+
+---
+
+## 📌 Applications
+
+- Smart security systems  
+- Distance-based automation  
+- Embedded system learning project  
+
+---
+
+## ⚠️ Notes
+
+- Ensure stable power supply for servo  
+- Check OLED I2C address if not working  
+- Use proper wiring for keypad  
+
+---
+
+## 👨‍💻 Author
+
+Sandesh Aryal
+
+
+### License
+
+- This projects is free and open-source code.
+- Modicification of this code is allowed according to your project needs.
+
+- If you like this Projects then give a like,share with your friends who are interested in Embedded System,IOT.
