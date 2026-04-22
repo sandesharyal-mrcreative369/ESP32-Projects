@@ -58,6 +58,11 @@ void loop(){
   delayMicroseconds(10);
   digitalWrite(trigPin,LOW);
   
+  duration = pulseIn(echoPin,HIGH);
+
+  //.....Convert to Distance......
+  distance_cm = duration * 0.034/2;
+  
 
   oled.clearDisplay();
   oled.setTextSize(2);
