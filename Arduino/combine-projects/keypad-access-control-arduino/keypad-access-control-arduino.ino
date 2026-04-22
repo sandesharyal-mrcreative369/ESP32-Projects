@@ -93,21 +93,21 @@ void loop(){
 
   char customKeys = customKeyPad.getKey();
 
+  if(distance_cm <2){
+    oled.setCursor(5,20);
+    oled.print("LOW Dist: ");
+    oled.print(distance_cm);
+
+}
+
+if(distance_cm >50{
+    oled.setCursor(5,20);
+    oled.print("OUT Dist: ");
+    oled.print(distance_cm);
+
+}
+
   if(customKeys){
-
-    if(distance_cm <2){
-        oled.setCursor(5,20);
-        oled.print("LOW Dist: ");
-        oled.print(distance_cm);
-
-    }
-
-    if(distance_cm >50{
-        oled.setCursor(5,20);
-        oled.print("OUT Dist: ");
-        oled.print(distance_cm);
-
-    }
 
     if (cusotmezkeys == "1234"){
       oled.setCursor(5,30);
