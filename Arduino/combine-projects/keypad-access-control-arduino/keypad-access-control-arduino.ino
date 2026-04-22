@@ -13,6 +13,13 @@ Adafruit_SSD1306 oled(128,64,&Wire,-1);
 const byte ROWS = 4;
 const byte COLS = 4;
 
+const int trigPin = ;
+const int echoPin = ;
+
+long duration;
+float distance_cm;
+
+
 char keys[ROWS][COLS] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
@@ -29,6 +36,9 @@ Keypad customKeyPad = Keypad(makeKeymap(keys),rowPins,colPins,ROWS,COLS);
 void setup(){
   Serial.begin(9600);
 
+  pinMode(trigPin,OUTPUT);
+  pinMode(echoPin,INPUT);
+
   if(!oled.begin(SSD1306_SWITCHCAPVCC,0x3C)){
     Serial.print("Failed to Connect...");
     while(true);
@@ -41,22 +51,30 @@ void setup(){
 
 void loop(){
 
-    oled.clearDisplay();
-    oled.setTextSize(2);
-    oled.setTextColor(WHITE);
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
 
-    oled.setCursor(5,10);
-    oled.print("Password: ");
+  digitalWrite(trigPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOW);
+  
 
-    char customKeys = customKeyPad.getKey();
+  oled.clearDisplay();
+  oled.setTextSize(2);
+  oled.setTextColor(WHITE);
 
-    if(customKeys){
-        
+  oled.setCursor(5,10);
+  oled.print("Password: ");
 
-    }
+  char customKeys = customKeyPad.getKey();
 
-    oled.display();
+  if(customKeys){
+      
 
-    delay(400);
+  }
+
+  oled.display();
+
+  delay(400);
 
 }
