@@ -4,17 +4,25 @@
 #include<Adafruit_SSD1306.h>
 #include<Adafruit_GFX.h>
 
+#include<Servo.h>
+
+
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
 Adafruit_SSD1306 oled(128,64,&Wire,-1);
+Servo servo;
 
 
 const byte ROWS = 4;
 const byte COLS = 4;
 
-const int trigPin = ;
-const int echoPin = ;
+const int trigPin = 13;
+const int echoPin = 12;
+
+#define Servo_Pin 11
+#define LED1 A2 
+#define LED2 A4
 
 long duration;
 float distance_cm;
@@ -38,6 +46,12 @@ void setup(){
 
   pinMode(trigPin,OUTPUT);
   pinMode(echoPin,INPUT);
+  
+  pinMode(LED1,OUTPUT);
+  pinMode(LED2,OUTPUT);
+
+  servo.attach(Servo_Pin);
+
 
   if(!oled.begin(SSD1306_SWITCHCAPVCC,0x3C)){
     Serial.print("Failed to Connect...");
@@ -62,7 +76,7 @@ void loop(){
 
   //.....Convert to Distance......
   distance_cm = duration * 0.034/2;
-  
+
 
   oled.clearDisplay();
   oled.setTextSize(2);
@@ -74,7 +88,18 @@ void loop(){
   char customKeys = customKeyPad.getKey();
 
   if(customKeys){
-      
+      if (cusotmezkeys == "1234"){
+        oled.setCursor(5,20);
+        oled.printz("Correct PW: ");
+
+        // Start servo Motor
+
+      }
+      else{
+        oled.setCursor(5,20);
+        oled.print("Incorrect PW: ");
+        oled.clearDisplay();
+      }
 
   }
 
