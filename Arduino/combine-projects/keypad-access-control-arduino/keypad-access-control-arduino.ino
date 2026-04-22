@@ -84,10 +84,6 @@ void loop(){
   int servo_angle = map(distance_cm ,0,50,0.180);
   servo_angle = constrain(servo_angle,0,180);
 
-  //Moves Servo Motor ot Servo Angle
-  servo.write(servo_angle);
-
-
   oled.clearDisplay();
   oled.setTextSize(2);
   oled.setTextColor(WHITE);
@@ -98,11 +94,28 @@ void loop(){
   char customKeys = customKeyPad.getKey();
 
   if(customKeys){
-      if (cusotmezkeys == "1234"){
-        oled.setCursor(5,20);
-        oled.printz("Correct PW: ");
 
-        // Start servo Motor
+    if(distance_cm <2){
+        oled.setCursor(5,20);
+        oled.print("LOW Dist: ");
+        oled.print(distance_cm);
+
+    }
+
+    if(distance_cm >50{
+        oled.setCursor(5,20);
+        oled.print("OUT Dist: ");
+        oled.print(distance_cm);
+
+    }
+
+    if (cusotmezkeys == "1234"){
+      oled.setCursor(5,30);
+      oled.print("Correct PW: ");
+
+      // Start servo Motor
+      //Moves Servo Motor ot Servo Angle
+      servo.write(servo_angle);
 
       }
       else{
