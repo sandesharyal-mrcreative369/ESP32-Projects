@@ -74,8 +74,18 @@ void loop(){
   
   duration = pulseIn(echoPin,HIGH);
 
+  //--------------Calculation Part--------------
+
   //.....Convert to Distance......
   distance_cm = duration * 0.034/2;
+
+  //---------Map distance ot Servo Angle
+  //Map 0-50cm ---> 0-180 degrees
+  int servo_angle = map(distance_cm ,0,50,0.180);
+  servo_angle = constrain(servo_angle,0,180);
+
+  //Moves Servo Motor ot Servo Angle
+  servo.write(servo_angle);
 
 
   oled.clearDisplay();
