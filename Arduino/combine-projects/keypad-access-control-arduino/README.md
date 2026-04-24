@@ -69,8 +69,8 @@ This project demonstrates the integration of multiple hardware components using 
 
 | Component | Connection              |
 |----------|------------------------|
-| LED 1 (Red)    | A1 + Resistor          |
-| LED 2 (Blue)   | A2 + Resistor          | 
+| (Red) LED 1    | A1 + Resistor          |
+| (Blue) LED 2   | A2 + Resistor          | 
 | Cathode        | GND                    |
 
 ---
