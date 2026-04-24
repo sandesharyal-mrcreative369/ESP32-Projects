@@ -1,15 +1,17 @@
-// ---------Adding necessary Libraries
-#include<Keypad.h>
-#include<Wire.h>
-#include<Adafruit_SSD1306.h>
-#include<Adafruit_GFX.h>
+// ---------Adding necessary Libraries--------
+#include<Keypad.h>   // Keypad library
+#include<Wire.h>   // Library for I2C communication
+#include<Adafruit_SSD1306.h>  // Library for OLED display
+#include<Adafruit_GFX.h>   // Graphics library for text and shapes
 
-#include<Servo.h>
+
+#include<Servo.h>  // Servo Motor Library
 
 // -----OLED Display Setup ----------
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
+// Create OLED display object using I2C (no reset pin, so -1)
 Adafruit_SSD1306 oled(128,64,&Wire,-1);
 
 // -------Servo Setup ------
@@ -66,15 +68,15 @@ void setup(){
   // Attach servo motor
   servo.attach(Servo_Pin);
 
-  // Initialize OLED display
+  // Initialize OLED display with I2C address 0x3C
   if(!oled.begin(SSD1306_SWITCHCAPVCC,0x3C)){
     Serial.print("Failed to Connect...");
 
-    // Stop if OLED fails
+    // Stop execution if OLED is not detected
     while(true);
   }
 
-  oled.clearDisplay();  //Clears Display Buffer
+  oled.clearDisplay();  // Clear any previous data from display buffer
 
 
 }
@@ -97,9 +99,9 @@ void loop(){
   distance_cm = duration * 0.034/2;
  
   // ------ OLED Display Setup -------
-  oled.clearDisplay();
-  oled.setTextSize(2);
-  oled.setTextColor(WHITE);
+  oled.clearDisplay();   // Clear display buffer
+  oled.setTextSize(2);   // Set text size (1–8)
+  oled.setTextColor(WHITE);   // Set text color
 
   // ------ Read Keypad Input ---------
   char customKeys = customKeyPad.getKey();
@@ -107,7 +109,7 @@ void loop(){
   // -------- Distance Conditions ---------
   // Very low distance
   if(distance_cm <2){
-    oled.setCursor(5,10);
+    oled.setCursor(5,10);   // Set cursor position (x, y)
     oled.print("LOW Dist: ");
     oled.print(distance_cm);
     digitalWrite(LED1,LOW);
@@ -148,8 +150,10 @@ if(distance_cm >50{
         servo.write(90);  //Opens Door
 
       }
+      
       // Wrong password
       else{
+
         attempt+=1;
         oled.setCursor(5,40);
         oled.print("No Access");
@@ -167,15 +171,14 @@ if(distance_cm >50{
         delay(7000);   // Lock for 7 sec
         attempt = 0;
         }
-   
-    
+
       }
 
       input = "";  //Reset input after checking
 
   }
 
-  // Show display
+  // Show buffer content on screen
   oled.display();
 
   delay(400);
