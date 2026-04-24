@@ -1,4 +1,4 @@
-# 🔌 Arduino Multi-Component Smart Project
+# 🔌 Smart Locking System using Arduino
 
 This project demonstrates the integration of multiple hardware components using Arduino Uno. It combines a keypad, ultrasonic sensor, OLED display, LEDs, and a servo motor into a single system.
 
