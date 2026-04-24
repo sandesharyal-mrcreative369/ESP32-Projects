@@ -30,6 +30,8 @@ float distance_cm;
 String input = "";
 String corretPassword = "1234";
 
+int attempt = 0;
+
 char keys[ROWS][COLS] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
@@ -96,6 +98,7 @@ void loop(){
     oled.setCursor(5,10);
     oled.print("LOW Dist: ");
     oled.print(distance_cm);
+    digitalWrite(LED1,LOW);
 }
 
 if(distance_cm >2 and distance_cm <=15){
@@ -103,6 +106,7 @@ if(distance_cm >2 and distance_cm <=15){
   oled.print("OBJ Detected: ");
   oled.print(distance_cm);
   digitalWrite(LED1,HIGH);
+}
 
 if(distance_cm >50{
     oled.setCursor(5,25);
@@ -120,17 +124,29 @@ if(distance_cm >50{
 
     if (input.length()==4){
       if(input == correctPassword){
+        attempt = 0;
+        digotalWrite(LED2,LOW);
         oled.setCursor(5,40);
         oled.print("Access Granted");
         servo.write(90);  //Opens Door
 
       }
 
-      }
       else{
+        attempt+=1;
         oled.setCursor(5,40);
         oled.print("No Access");
         servo.write(0);  //Closes Door
+
+        if(attempt >=3){
+        oled.setCursor(5,50);
+        oled.print("System LOCKED");
+        servo.write(0);  //Closes Door
+        digitalWrite(LED2,HIGH);
+        delay(7000);  
+        attempt = 0;
+        }
+   
     
       }
 
