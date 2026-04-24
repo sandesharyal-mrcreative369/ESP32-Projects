@@ -27,6 +27,8 @@ const int echoPin = 12;
 long duration;
 float distance_cm;
 
+String input = "";
+String corretPassword = "1234";
 
 char keys[ROWS][COLS] = {
   {'1','2','3','A'},
@@ -79,22 +81,19 @@ void loop(){
   //.....Convert to Distance......
   distance_cm = duration * 0.034/2;
 
-  //---------Map distance ot Servo Angle
-  //Map 0-50cm ---> 0-180 degrees
-  int servo_angle = map(distance_cm ,0,50,0.180);
-  servo_angle = constrain(servo_angle,0,180);
+  // //---------Map distance ot Servo Angle
+  // //Map 0-50cm ---> 0-180 degrees
+  // int servo_angle = map(distance_cm ,0,50,0,180);
+  // servo_angle = constrain(servo_angle,0,180);
 
   oled.clearDisplay();
   oled.setTextSize(2);
   oled.setTextColor(WHITE);
 
-  oled.setCursor(5,10);
-  oled.print("Password: ");
-
   char customKeys = customKeyPad.getKey();
 
   if(distance_cm <2){
-    oled.setCursor(5,20);
+    oled.setCursor(5,10);
     oled.print("LOW Dist: ");
     oled.print(distance_cm);
 
@@ -109,20 +108,28 @@ if(distance_cm >50{
 
   if(customKeys){
 
-    if (cusotmezkeys == "1234"){
-      oled.setCursor(5,30);
-      oled.print("Correct PW: ");
+    input+=cutomeKeys;
 
-      // Start servo Motor
-      //Moves Servo Motor ot Servo Angle
-      servo.write(servo_angle);
+    oled.setCursor(5,30);
+    oled.println("Password: ");
+
+    if (input.length()==4){
+      if(input == correctPassword){
+        oled.setCursor(5,40);
+        oled.print("Access Granted");
+        servo.write(90);  //Opens Door
+
+      }
 
       }
       else{
-        oled.setCursor(5,20);
-        oled.print("Incorrect PW: ");
-        oled.clearDisplay();
+        oled.setCursor(5,40);
+        oled.print("No Access");
+        servo.write(0);  //Closes Door
+    
       }
+
+      input = "";  //Reset
 
   }
 
