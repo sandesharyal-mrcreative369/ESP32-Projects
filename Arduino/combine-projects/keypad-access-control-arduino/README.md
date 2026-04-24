@@ -79,7 +79,7 @@ This project demonstrates the integration of multiple hardware components using 
 
 | Wire Color | Connection |
 |-----------|-----------|
-| Red        | 3.3V        |
+| Red        | 3.3V      |
 | Brown/Black| GND       |
 | Orange     | PWM 11    |
 
@@ -103,7 +103,7 @@ This project demonstrates the integration of multiple hardware components using 
    - LEDs turn ON/OFF  
    - Servo motor rotates  
    - 3 Attempts for unlocking password
-   - if 3 attempts then system automatically locks for 7 seconds.
+   - if 3 attempts fails then system automatically locks for 7 seconds.
 
 ---
 
