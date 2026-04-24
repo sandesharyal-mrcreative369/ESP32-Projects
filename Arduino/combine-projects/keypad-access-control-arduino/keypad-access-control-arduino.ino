@@ -96,11 +96,16 @@ void loop(){
     oled.setCursor(5,10);
     oled.print("LOW Dist: ");
     oled.print(distance_cm);
-
 }
 
+if(distance_cm >2 and distance_cm <=15){
+  oled.setCursor(5,20);
+  oled.print("OBJ Detected: ");
+  oled.print(distance_cm);
+  digitalWrite(LED1,HIGH);
+
 if(distance_cm >50{
-    oled.setCursor(5,20);
+    oled.setCursor(5,25);
     oled.print("OUT Dist: ");
     oled.print(distance_cm);
 
