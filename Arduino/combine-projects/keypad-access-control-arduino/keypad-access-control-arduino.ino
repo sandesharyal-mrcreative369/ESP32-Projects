@@ -21,8 +21,8 @@ const int trigPin = 13;
 const int echoPin = 12;
 
 #define Servo_Pin 11
-#define LED1 A2 
-#define LED2 A4
+#define LED1 A1
+#define LED2 A2
 
 long duration;
 float distance_cm;
