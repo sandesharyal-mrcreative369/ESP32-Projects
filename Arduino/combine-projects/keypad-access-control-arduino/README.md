@@ -102,6 +102,8 @@ This project demonstrates the integration of multiple hardware components using 
 5. Based on logic:
    - LEDs turn ON/OFF  
    - Servo motor rotates  
+   - 3 Attempts for unlocking password
+   - if 3 attempts then system automatically locks for 7 seconds.
 
 ---
 
@@ -121,7 +123,7 @@ This project demonstrates the integration of multiple hardware components using 
 - Smart security systems  
 - Distance-based automation  
 - Embedded system learning project  
-
+- Smart Radar System
 ---
 
 ## ⚠️ Notes
