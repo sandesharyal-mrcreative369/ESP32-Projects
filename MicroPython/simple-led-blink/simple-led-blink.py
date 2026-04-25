@@ -1,10 +1,13 @@
+# Import the Pin class to control GPIO pins
 from machine import Pin
+
+# Import the time module for delay functions
 import time
 
-#Led object Creation
+# Create an LED object on GPIO 13 and set it as output
 led = Pin(13,Pin.OUT)
 
-#Infinitely runs
+# Run the program continuously
 while True:
     
     led.value(1)  #LED ON
